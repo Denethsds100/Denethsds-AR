@@ -85,8 +85,8 @@
                 - src: Path to your .glb model file, using the direct GitHub raw content URL.
                 - ar: Enables Augmented Reality functionality.
                 - ar-modes: Specifies the AR modes (webxr for common AR, scene-viewer for Google's native AR viewer, quick-look for Apple's native AR viewer).
-                - ar-scale="auto": This attempts to render the model at its real-world scale based on its dimensions in the GLB file,
-                                   allowing for physical walkthroughs.
+                - ar-scale="fixed": This attribute is crucial for a walk-through experience, as it ensures the model is placed at a life-size, real-world scale.
+                - ar-placement="floor": This attribute tells the viewer to place the model on a flat surface like the floor, which is essential for walking through the house model.
                 - camera-controls: Allows user to rotate, pan, and zoom the model in 3D view (before entering AR).
                 - shadow-intensity: Adjusts the intensity of the model's shadow.
                 - auto-rotate: Automatically rotates the model when not interacted with.
@@ -96,8 +96,8 @@
                 src="https://raw.githubusercontent.com/Denethsds100/Denethsds-AR/main/ARmodel"
                 alt="Your 3D model"
                 ar
-                ar-modes="webxr scene-viewer quick-look"
-                ar-scale="auto"
+                ar-scale="fixed"
+                ar-placement="floor"
                 camera-controls
                 shadow-intensity="1"
                 auto-rotate
