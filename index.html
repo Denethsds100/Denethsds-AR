@@ -75,7 +75,7 @@
         </h1>
         <!-- Instructions for the user -->
         <p class="text-lg text-gray-700 mb-8 text-center max-w-2xl">
-            Your model is now linked! Tap the AR icon below to place it in your real-world environment and walk through it at real-world scale.
+            Tap the AR icon below to place the model in your real-world environment.
         </p>
 
         <!-- Model Viewer Container -->
@@ -84,9 +84,9 @@
                 The model-viewer component.
                 - src: Path to your .glb model file, using the direct GitHub raw content URL.
                 - ar: Enables Augmented Reality functionality.
-                - ar-modes: Specifies the AR modes (webxr for common AR, scene-viewer for Google's native AR viewer, quick-look for Apple's native AR viewer).
+                - ar-modes: Specifies the AR modes. 'webxr' is for standard AR, and 'webxr-ar-session' is for image tracking.
                 - ar-scale="fixed": This attribute is crucial for a walk-through experience, as it ensures the model is placed at a life-size, real-world scale.
-                - ar-placement="floor": This attribute tells the viewer to place the model on a flat surface like the floor, which is essential for walking through the house model.
+                - ar-target-source: The URL to the image target data. This can be a .gltf file that contains the image marker.
                 - camera-controls: Allows user to rotate, pan, and zoom the model in 3D view (before entering AR).
                 - shadow-intensity: Adjusts the intensity of the model's shadow.
                 - auto-rotate: Automatically rotates the model when not interacted with.
@@ -96,8 +96,9 @@
                 src="https://raw.githubusercontent.com/Denethsds100/Denethsds-AR/main/ARmodel"
                 alt="Your 3D model"
                 ar
+                ar-modes="webxr webxr-ar-session"
                 ar-scale="fixed"
-                ar-placement="floor"
+                ar-target-source="https://raw.githubusercontent.com/google/model-viewer/main/packages/model-viewer/src/test/assets/test-image-tracking.gltf"
                 camera-controls
                 shadow-intensity="1"
                 auto-rotate
