@@ -80,17 +80,6 @@
 
         <!-- Model Viewer Container -->
         <div class="model-viewer-container">
-            <!--
-                The model-viewer component.
-                - src: Path to your .glb model file, using the direct GitHub raw content URL.
-                - ar: Enables Augmented Reality functionality.
-                - ar-modes: Specifies the AR modes. 'webxr' is for standard AR, and 'webxr-ar-session' is for image tracking.
-                - ar-scale="fixed": This attribute is crucial for a walk-through experience, as it ensures the model is placed at a life-size, real-world scale.
-                - camera-controls: Allows user to rotate, pan, and zoom the model in 3D view (before entering AR).
-                - shadow-intensity: Adjusts the intensity of the model's shadow.
-                - auto-rotate: Automatically rotates the model when not interacted with.
-                - poster: An image to show while the model is loading.
-            -->
             <model-viewer
                 id="modelViewer"
                 alt="Your 3D model"
@@ -103,7 +92,6 @@
                 poster="https://placehold.co/600x400/AED6F1/000000?text=Loading+3D+Model"
                 class="rounded-lg"
             >
-                <!-- AR Button: Appears on AR-enabled devices to launch the AR experience -->
                 <button slot="ar-button" class="flex items-center justify-center bg-blue-600 text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 ease-in-out absolute bottom-4 left-1/2 -translate-x-1/2">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 mr-2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
@@ -119,21 +107,15 @@
         </p>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Configure your file names here. You only need to change these values.
-            const githubRepoBaseUrl = "https://raw.githubusercontent.com/Denethsds100/Denethsds-AR/main/";
-            const modelFileName = "ARmodel";
-            const imageTargetUrl = "https://raw.githubusercontent.com/Denethsds100/Denethsds-AR/refs/heads/main/image_target.gltf";
+    <script type="module">
+        import { githubRepoBaseUrl, modelFileName, imageTargetFileName } from './config.js';
 
-            // Build the full URL for the model.
-            const modelUrl = githubRepoBaseUrl + modelFileName;
-            
-            // Get the model-viewer element
+        document.addEventListener('DOMContentLoaded', () => {
             const modelViewer = document.getElementById('modelViewer');
             
-            // Set the model and image target sources.
-            // The image target URL is a full URL, so it is used directly.
+            const modelUrl = githubRepoBaseUrl + modelFileName;
+            const imageTargetUrl = githubRepoBaseUrl + imageTargetFileName;
+            
             modelViewer.src = modelUrl;
             modelViewer.setAttribute('ar-target-source', imageTargetUrl);
         });
