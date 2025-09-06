@@ -10,4 +10,4 @@ export const githubRepoBaseUrl = "https://raw.githubusercontent.com/Denethsds100
 export const modelFileName = "ARmodel";
 
 // The name of your image target file (in .gltf format).
-export const imageTargetFileName = "image_target.gltf";
+export const imageTargetFileName = "https://raw.githubusercontent.com/Denethsds100/Denethsds-AR/refs/heads/main/image_target.gltf";
